@@ -4,11 +4,28 @@
     box-sizing: border-box;
     font-family: "Antonio", sans-serif;
 }
+
 body {
     background-color: rgb(136, 145, 169);
 }
+
+::-webkit-scrollbar {
+    /* display: none; */
+    width: 5px;
+    background-color: #222;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #666;
+    border-radius: 10px;
+}
+
 .invert {
     filter: invert(1);
+}
+
+.hidden {
+    display: none;
 }
 
 .logo-area {
@@ -21,24 +38,250 @@ body {
     padding: 10px;
     padding-top: 15px;
 }
+
 .logo-area * {
     cursor: pointer;
 }
-.logo img  {
+
+.logo img {
     width: 250px;
     filter: invert(1);
 
 }
+
 .logo2 h1 {
     color: white;
     font-weight: 1000;
 }
+
 .favourites {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 180px;
+    width: 190px;
+    margin-right: 10px;
 }
+
 .favourites h2 {
     color: white;
 }
+
+.main-container {
+    /* background-color: white; */
+    width: 100vw;
+    height: 91vh;
+
+}
+
+.background {
+    width: 100%;
+    height: 100%;
+    background-image: url(assets/wallpaper.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    /* filter: blur(5px); */
+}
+
+.start-button {
+    position: absolute;
+    cursor: pointer;
+    left: 43%;
+    top: 70%;
+    font-size: 33px;
+    padding: 0px 65px;
+    padding-bottom: 5px;
+    background-color: rgba(0, 0, 0, 0);
+    color: rgb(213, 0, 0);
+    border: 2px solid red;
+    border-radius: 70px;
+    transition: .2s;
+}
+
+.start-button:hover {
+    scale: 1.1;
+    color: rgb(255, 13, 13);
+}
+
+.over-main {
+    position: absolute;
+    top: 9%;
+    width: 100vw;
+    height: 91vh;
+    background-color: rgba(22, 0, 0, 0.636);
+    transition: all .5s;
+    left: -110%;
+}
+
+.search-and-hero {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 10px 0px;
+}
+
+.search-hero {
+    height: 100%;
+    width: 40%;
+    background-color: rgba(245, 222, 179, 0.121);
+    padding: 20px;
+}
+
+.search-hero input {
+    width: 100%;
+    height: 8%;
+    font-size: 25px;
+    letter-spacing: 1px;
+    padding: 27px;
+    color: white;
+    background-color: transparent;
+    border-radius: 50px;
+    border: 2px solid white;
+    margin-bottom: 10px;
+    outline: none;
+}
+
+.search-hero input::placeholder {
+    color: rgb(207, 0, 0);
+}
+
+.search-results {
+    width: 100%;
+    border: 1px solid white;
+    height: 89%;
+    border-radius: 20px;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.578);
+}
+
+.result-cards {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    border: 1px solid white;
+    width: 100%;
+    height: 20%;
+    color: white;
+    font-size: 30px;
+}
+
+.result-cards>* {
+    margin: 10px;
+}
+
+.result-cards img {
+    background-position: center;
+    height: 100%;
+}
+
+.result-cards p {
+    width: 70%;
+    text-align: center;
+    padding: 20px;
+    cursor: pointer;
+}
+
+.result-cards button {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: transparent;
+    color: white;
+    padding: 5px 0px;
+    border: none;
+    cursor: pointer;
+}
+
+.sample-hero {
+    height: 100%;
+    width: 59%;
+    background-color: rgba(245, 222, 179, 0.121);
+    padding: 10px;
+}
+
+.sample-hero>div {
+    width: 100%;
+    height: 50%;
+    /* border: .5px solid white; */
+}
+
+/* CAPTAIN AMERICA CSS */
+.captain-img-container {
+    position: absolute;
+    height: 46%;
+}
+.captain-img-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+}
+.captain:hover .captain-img{
+    opacity: 1;
+    scale: 1.9;
+    z-index: 2;
+    transform: translateX(104%) translateY(27%);
+}
+.captain:hover .captain-ico-img{
+    scale: 1.9;
+    transform: translateX(104%) translateY(27%);
+}
+.captain-details {
+    position: absolute;
+    color: white;
+    width: 25%;
+    top: 30%;
+    font-size: 20px;
+    opacity: 0;
+    transition: all 1s ease-in-out;
+}
+.captain:hover .captain-details {
+    opacity: 1;
+}
+.captain-ico-img, .ironman-ico-img {
+    transition: all 1s ease-in-out;
+}
+.captain-img, .ironman-img {
+    opacity: 0;
+    transition: all 1s ease-in-out;
+}
+
+ /* IRON MAN CSS */
+.ironman-img-container {
+    position: absolute;
+    height: 46%;
+    right: 2%;
+}
+.ironman-img-container img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+}
+
+.ironman:hover .ironman-img{
+    opacity: 1;
+    scale: 2;
+    transform: translateX(-133%) translateY(-25%);
+}
+.ironman:hover .ironman-ico-img{
+    scale: 2;
+    transform: translateX(-133%) translateY(-25%);
+}
+.ironman-details {
+    position: absolute;
+    color: white;
+    width: 25%;
+    top: 30%;
+    right: 3%;
+    font-size: 20px;
+    opacity: 0;
+    transition: all 1s ease-in-out;
+}
+.ironman:hover .ironman-details {
+    opacity: 1;
+}
+
