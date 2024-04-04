@@ -1,12 +1,49 @@
 import { getData } from './mainMarvelAPI.js';
+let favouriteHeroes = [];
+
 
 // ---------- ALL FUNCTIONS BELOW ------------- // 
 
+//to fetch all favourite heroes from previous session(s) -- 
+(function () {
+    favouriteHeroes = JSON.parse(localStorage.getItem("favouriteHeroes")) || null;
+    if (favouriteHeroes === null)
+        return;
+})();
+
+
+//Below function will be used for populating all the results from searching into the .search-results class..
+const populateSearchResults = (arr) => {
+
+    arr.forEach(element => {
+        document.querySelector(".search-results").innerHTML +=
+            `   
+                <div class="result-cards" id="${element.id}">
+                    <img src="${element.thumbnail.path}/portrait_medium.jpg"
+                        alt="result-image">
+                    <p>${element.name}</p>
+                    <button class="fav-button" id="${element.id}"><img class="invert"
+                                src="https://cdn.hugeicons.com/icons/heart-add-solid-rounded.svg"
+                                alt="heart-add" width="28" height="28">Add to Favourites
+                    </button>
+                </div>
+            `;
+        });
+    document.querySelectorAll(".fav-button").forEach(elem => {
+        elem.addEventListener("click", (e) => {
+            console.log(e.target.parentElement.id);
+        })
+    });
+}
+
 const searchAndPopulate = async (value) => {
     if (!value) {
+        document.querySelector(".search-results").innerHTML = "";
         return;
     }
-    console.log(await getData(value));
+    document.querySelector(".search-results").innerHTML = "";
+    let fetchedResults = [];
+    populateSearchResults(await getData(value));
 }
 
 

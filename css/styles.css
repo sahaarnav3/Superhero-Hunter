@@ -10,14 +10,15 @@ body {
 }
 
 ::-webkit-scrollbar {
-    /* display: none; */
-    width: 5px;
-    background-color: #222;
+    display: none;
+    /* width: 5px;
+    background-color: #222; */
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #666;
-    border-radius: 10px;
+    display: none;
+    /* background-color: #666;
+    border-radius: 10px; */
 }
 
 .invert {
@@ -191,6 +192,7 @@ body {
     padding: 5px 0px;
     border: none;
     cursor: pointer;
+    width: 70px;
 }
 
 .sample-hero {
