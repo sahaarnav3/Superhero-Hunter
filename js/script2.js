@@ -1,8 +1,13 @@
-import { favouriteHeroes } from "./script.js";
+import { favouriteHeroes, deleteFavouriteHero } from "./script.js";
 
 (function () {
-    if (Object.keys(favouriteHeroes).length <= 0)
-        return;
+    if (Object.keys(favouriteHeroes).length <= 0) {
+        document.querySelector(".over-main2").innerHTML =
+            `
+                <p class="start">Start Adding Your Favourite Heroes to the list..</p>
+            `;
+            return;
+    }
     document.querySelector(".over-main2").innerHTML = "";
     for (const key in favouriteHeroes) {
         // console.log(key, favouriteHeroes[key].thumbnail.path);
@@ -19,14 +24,21 @@ import { favouriteHeroes } from "./script.js";
                     <p>stories <span id="hero-stories">${favouriteHeroes[key].stories.available}</span></p>
                 </div>
                 <div class="card-buttons">
-                    <button ><img class="invert" src="https://cdn.hugeicons.com/icons/information-diamond-solid-rounded.svg"
+                    <button class="more-info"><img class="invert" src="https://cdn.hugeicons.com/icons/information-diamond-solid-rounded.svg"
                             alt="information-diamond" width="28" height="28">More Info</button>
-                    <button><img class="invert" src="https://cdn.hugeicons.com/icons/heart-remove-solid-rounded.svg"
+                    <button class="delete-hero" id=${favouriteHeroes[key].id}><img class="invert" src="https://cdn.hugeicons.com/icons/heart-remove-solid-rounded.svg"
                             alt="heart-remove" width="28" height="28">Remove From Favourites</button>
                 </div>
             </div>
             `;
     }
+    document.querySelectorAll(".delete-hero").forEach(element => {
+        element.addEventListener("click", (e) => {
+            console.log(e.target.id);
+            deleteFavouriteHero(e.target.id);
+            location.reload();
+        })
+    });
 })();
 
 // ---------- ALL EVENTS BELOW ------------- //

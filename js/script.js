@@ -16,19 +16,29 @@ export let favouriteHeroes = {};
 // -- to persist the state itself..
 const storeFavouriteHero = async (heroID) => {
     //After getting the id I will make an API call to fetch all the details and store it as key value pair in the favouriteHeroes array.
-    // console.log((await getDataWithID(heroID))[0]);
-    console.log(favouriteHeroes)
+    // console.log(favouriteHeroes)
     let heroKeys = Object.keys(favouriteHeroes);
     if (!heroKeys.includes(heroID))
         favouriteHeroes[heroID] = (await getDataWithID(heroID))[0];
     console.log(favouriteHeroes);
     localStorage.setItem("favouriteHeroes", JSON.stringify(favouriteHeroes));
 }
+//Below function will be used to delete hero from fav list and persist it as well.
+export const deleteFavouriteHero = (heroID) => {
+    let heroKeys = Object.keys(favouriteHeroes);
+    if(heroKeys.includes(heroID)){
+        delete favouriteHeroes[heroID];
+        localStorage.setItem("favouriteHeroes", JSON.stringify(favouriteHeroes));
+    } else 
+        return;
+}
 
 //Below function will be used for populating all the results from searching into the .search-results class..
 const populateSearchResults = (arr) => {
     // console.log(arr[0]);
     arr.forEach(element => {
+        const presentInFav = Object.keys(favouriteHeroes).includes(String(element.id)) ? true : false;
+
         document.querySelector(".search-results").innerHTML +=
             `   
                 <div class="result-cards" id="${element.id}">
@@ -36,15 +46,22 @@ const populateSearchResults = (arr) => {
                         alt="result-image">
                     <p>${element.name}</p>
                     <button class="fav-button" id="${element.id}"><img class="invert"
-                                src="https://cdn.hugeicons.com/icons/heart-add-solid-rounded.svg"
-                                alt="heart-add" width="28" height="28">Add to Favourites
+                                src="https://cdn.hugeicons.com/icons/${presentInFav ? "heart-remove-solid-rounded" : "heart-add-solid-rounded"}.svg"
+                                alt="heart-add" width="28" height="28">${presentInFav ? "Remove From Favourites" : "Add To Favourites"}
                     </button>
                 </div>
             `;
     });
     document.querySelectorAll(".fav-button").forEach(elem => {
         elem.addEventListener("click", (e) => {
-            storeFavouriteHero(e.target.parentElement.id);
+            // storeFavouriteHero(e.target.parentElement.id);
+            const id = e.target.parentElement.id
+            if(Object.keys(favouriteHeroes).includes(id)){
+                deleteFavouriteHero(id);
+            }
+            else {
+                storeFavouriteHero(id);
+            }
         });
     });
 }

@@ -106,7 +106,7 @@ body {
     color: white;
     border-radius: 20px;
     /* width: 20%; */
-    min-width: 350px;
+    width: 300px;
     display: flex;
     flex-direction: column;
 }
@@ -128,7 +128,8 @@ body {
 
 .card-details h1 {
     text-align: center;
-    overflow: auto;
+    overflow: scroll;
+    height: 85px;
 }
 
 .card-details p {
