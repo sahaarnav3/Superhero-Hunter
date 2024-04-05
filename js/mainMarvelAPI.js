@@ -9,3 +9,10 @@ export let getData = async (value) => {
     response = await response.json()
     return response.data.results;
 }
+
+export let getDataWithID = async (value) => {
+    let response = await fetch(`${mainURL}characters/${value}?${mainURLHeader}`)
+    // .then(data => data.json());
+    response = await response.json()
+    return response.data.results;
+}

@@ -1,20 +1,33 @@
 import { getData } from './mainMarvelAPI.js';
-let favouriteHeroes = [];
+import { getDataWithID } from './mainMarvelAPI.js';
+export let favouriteHeroes = {};
 
 
 // ---------- ALL FUNCTIONS BELOW ------------- // 
 
 //to fetch all favourite heroes from previous session(s) -- 
 (function () {
-    favouriteHeroes = JSON.parse(localStorage.getItem("favouriteHeroes")) || null;
-    if (favouriteHeroes === null)
+    favouriteHeroes = JSON.parse(localStorage.getItem("favouriteHeroes")) || {};
+    if (!favouriteHeroes)
         return;
 })();
 
+//this function will be called when favourite button is pressed and will store the hero in both favouriteHero array and local storage --
+// -- to persist the state itself..
+const storeFavouriteHero = async (heroID) => {
+    //After getting the id I will make an API call to fetch all the details and store it as key value pair in the favouriteHeroes array.
+    // console.log((await getDataWithID(heroID))[0]);
+    console.log(favouriteHeroes)
+    let heroKeys = Object.keys(favouriteHeroes);
+    if (!heroKeys.includes(heroID))
+        favouriteHeroes[heroID] = (await getDataWithID(heroID))[0];
+    console.log(favouriteHeroes);
+    localStorage.setItem("favouriteHeroes", JSON.stringify(favouriteHeroes));
+}
 
 //Below function will be used for populating all the results from searching into the .search-results class..
 const populateSearchResults = (arr) => {
-
+    // console.log(arr[0]);
     arr.forEach(element => {
         document.querySelector(".search-results").innerHTML +=
             `   
@@ -28,14 +41,15 @@ const populateSearchResults = (arr) => {
                     </button>
                 </div>
             `;
-        });
+    });
     document.querySelectorAll(".fav-button").forEach(elem => {
         elem.addEventListener("click", (e) => {
-            console.log(e.target.parentElement.id);
-        })
+            storeFavouriteHero(e.target.parentElement.id);
+        });
     });
 }
 
+//Below function is being used  to make the actual API Call...
 const searchAndPopulate = async (value) => {
     if (!value) {
         document.querySelector(".search-results").innerHTML = "";
@@ -51,21 +65,28 @@ const searchAndPopulate = async (value) => {
 // ---------- ALL EVENTS BELOW ------------- // 
 document.querySelector(".favourites").addEventListener("click", () => {
     window.location.href = '../html/favourites.html';
-})
+    console.log("fav clicked");
+});
 document.querySelector(".logo").addEventListener("click", () => {
     window.location.href = '../index.html';
-})
+});
 document.querySelector(".logo2").addEventListener("click", () => {
     window.location.href = '../index.html';
-})
-document.querySelector(".start-button").addEventListener("click", () => {
-    document.querySelector(".over-main").style.left = 0;
-    document.querySelector(".start-button").classList.add("hidden");
-    document.querySelector(".background").style.filter = "blur(7px)";
-})
-
+});
+//This if here is too imp, see we are working in multi page website so what was happening was if you try exporting only the array, stil
+//-- the whole scipt was soemhow invoked, so what if did was, this below func will only be invoked if it finds .start-button 
+// -- in the current dom itself WOWWW.
+if (document.querySelector(".start-button")) {
+    document.querySelector(".start-button").addEventListener("click", () => {
+        document.querySelector(".over-main").style.left = 0;
+        document.querySelector(".start-button").classList.add("hidden");
+        document.querySelector(".background").style.filter = "blur(7px)";
+    });
+}
 
 //below I am addfing an event listener to get the value typed in input box, and  then fire the relevant function
-document.querySelector(".search-hero input").addEventListener("keyup", (e) => {
-    searchAndPopulate(e.target.value);
-})
+if (document.querySelector(".search-hero input")) {
+    document.querySelector(".search-hero input").addEventListener("keyup", (e) => {
+        searchAndPopulate(e.target.value);
+    });
+}

@@ -10,14 +10,7 @@ body {
 }
 
 ::-webkit-scrollbar {
-    /* display: none; */
-    width: 5px;
-    background-color: #222;
-}
-
-::-webkit-scrollbar-thumb {
-    background-color: #666;
-    border-radius: 10px;
+    display: none;
 }
 
 .invert {
@@ -70,6 +63,7 @@ body {
     width: 100vw;
     height: 91vh;
 }
+
 .background {
     width: 100%;
     height: 100%;
@@ -79,11 +73,93 @@ body {
     background-position: center;
     filter: blur(5px);
 }
+
 .over-main2 {
     position: absolute;
     top: 9%;
     width: 100vw;
     height: 91vh;
-    background-color: rgba(22, 0, 0, 0.636);
-    transition: all .5s;
+    background-color: rgba(22, 0, 0, 0.208);
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 40px 20px;
+    flex-wrap: wrap;
+    overflow: scroll;
+}
+.over-main2 p {
+    color: white;
+    font-size: 40px;
+    background-color: rgba(0, 0, 0, 0.564);
+    border-radius: 20px;
+    width: 90%;
+    padding: 30px;
+    text-align: center;
+    box-shadow: rgb(255, 255, 255) 0px 2px 4px 0px, rgb(255, 255, 255) 0px 2px 16px 0px;
+}
+
+.fav-card {
+    border: 1px solid white;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.564);
+    color: white;
+    border-radius: 20px;
+    /* width: 20%; */
+    min-width: 350px;
+    display: flex;
+    flex-direction: column;
+}
+
+.fav-card:hover {
+    scale: 1.07;
+    transition: all .4s ease-in-out;
+    box-shadow: rgb(255, 255, 255) 0px 2px 4px 0px, rgb(255, 255, 255) 0px 2px 16px 0px;
+}
+
+.fav-card img {
+    border-radius: 12px;
+}
+
+.card-details {
+    max-width: 100%;
+    padding: 10px;
+}
+
+.card-details h1 {
+    text-align: center;
+    overflow: auto;
+}
+
+.card-details p {
+    padding: 0px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    font-size: 15px;
+    font-weight: 800;
+}
+.card-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.card-buttons button {
+    width: 100%;
+    background-color: rgba(154, 154, 154, 0.373);
+    color: white;
+    border: none;
+    margin: 5px 0px;
+    padding: 10px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 15px;
+    font-weight: 800;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.card-buttons button:hover {
+    scale: 1.03;
 }
