@@ -1,8 +1,7 @@
 import { favouriteHeroes } from "./script.js";
-console.log(favouriteHeroes);
 
 (function () {
-    if (!favouriteHeroes[0])
+    if (Object.keys(favouriteHeroes).length <= 0)
         return;
     document.querySelector(".over-main2").innerHTML = "";
     for (const key in favouriteHeroes) {

@@ -88,7 +88,7 @@ body {
     flex-wrap: wrap;
     overflow: scroll;
 }
-.over-main2 p {
+.start {
     color: white;
     font-size: 40px;
     background-color: rgba(0, 0, 0, 0.564);
