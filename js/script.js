@@ -20,16 +20,16 @@ const storeFavouriteHero = async (heroID) => {
     let heroKeys = Object.keys(favouriteHeroes);
     if (!heroKeys.includes(heroID))
         favouriteHeroes[heroID] = (await getDataWithID(heroID))[0];
-    console.log(favouriteHeroes);
+    // console.log(favouriteHeroes);
     localStorage.setItem("favouriteHeroes", JSON.stringify(favouriteHeroes));
 }
 //Below function will be used to delete hero from fav list and persist it as well.
 export const deleteFavouriteHero = (heroID) => {
     let heroKeys = Object.keys(favouriteHeroes);
-    if(heroKeys.includes(heroID)){
+    if (heroKeys.includes(heroID)) {
         delete favouriteHeroes[heroID];
         localStorage.setItem("favouriteHeroes", JSON.stringify(favouriteHeroes));
-    } else 
+    } else
         return;
 }
 
@@ -45,7 +45,7 @@ const populateSearchResults = (arr) => {
                     <img src="${element.thumbnail.path}/portrait_medium.jpg"
                         alt="result-image">
                     <p>${element.name}</p>
-                    <button class="fav-button" id="${element.id}"><img class="invert"
+                    <button class="fav-button fav-button-${element.id}" id="${element.id}"><img class="invert"
                                 src="https://cdn.hugeicons.com/icons/${presentInFav ? "heart-remove-solid-rounded" : "heart-add-solid-rounded"}.svg"
                                 alt="heart-add" width="28" height="28">${presentInFav ? "Remove From Favourites" : "Add To Favourites"}
                     </button>
@@ -53,15 +53,26 @@ const populateSearchResults = (arr) => {
             `;
     });
     document.querySelectorAll(".fav-button").forEach(elem => {
-        elem.addEventListener("click", (e) => {
-            // storeFavouriteHero(e.target.parentElement.id);
+        elem.addEventListener("click", async (e) => {
             const id = e.target.parentElement.id
-            if(Object.keys(favouriteHeroes).includes(id)){
+            console.log(id);
+            if (Object.keys(favouriteHeroes).includes(id)) {
                 deleteFavouriteHero(id);
+                document.querySelector(`.fav-button-${id}`).innerHTML =
+                `
+                    <img class="invert" src="https://cdn.hugeicons.com/icons/heart-add-solid-rounded.svg"
+                    alt="heart-add" width="28" height="28">Add To Favourites
+                `
             }
             else {
-                storeFavouriteHero(id);
+                await storeFavouriteHero(id);
+                document.querySelector(`.fav-button-${id}`).innerHTML =
+                `
+                    <img class="invert" src="https://cdn.hugeicons.com/icons/heart-remove-solid-rounded.svg"
+                    alt="heart-add" width="28" height="28">Remove From Favourites
+                `
             }
+            console.log(favouriteHeroes);
         });
     });
 }
@@ -73,7 +84,6 @@ const searchAndPopulate = async (value) => {
         return;
     }
     document.querySelector(".search-results").innerHTML = "";
-    let fetchedResults = [];
     populateSearchResults(await getData(value));
 }
 
