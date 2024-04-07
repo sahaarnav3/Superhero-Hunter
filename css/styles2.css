@@ -164,3 +164,12 @@ body {
 .card-buttons button:hover {
     scale: 1.03;
 }
+
+/* -------------- Below styling for more info page-------------------- */
+.moreinfo-card {
+    width: 80%;
+    height: 80%;
+    background-color: rgba(0, 0, 0, 0.564);
+    border-radius: 25px;
+    box-shadow: rgb(255, 255, 255) 0px 0px 20px 0px, rgb(255, 255, 255) 0px 0px 16px 0px;
+}

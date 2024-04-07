@@ -2,7 +2,6 @@ import { getData } from './mainMarvelAPI.js';
 import { getDataWithID } from './mainMarvelAPI.js';
 export let favouriteHeroes = {};
 
-
 // ---------- ALL FUNCTIONS BELOW ------------- // 
 
 //to fetch all favourite heroes from previous session(s) -- 
@@ -33,6 +32,13 @@ export const deleteFavouriteHero = (heroID) => {
         return;
 }
 
+//Below function will redirect to more info page with all the details if the hero clicked.
+export const moreInfoClicked = async (heroID) => {
+    const data = (await getDataWithID(heroID))[0];
+    sessionStorage.setItem('moreInfoID', JSON.stringify(data));
+    window.location.href = '../html/moreInfo.html';
+}
+
 //Below function will be used for populating all the results from searching into the .search-results class..
 const populateSearchResults = (arr) => {
     // console.log(arr[0]);
@@ -52,6 +58,7 @@ const populateSearchResults = (arr) => {
                 </div>
             `;
     });
+    //Below is the functionality for the add/remove favourite button in search results.
     document.querySelectorAll(".fav-button").forEach(elem => {
         elem.addEventListener("click", async (e) => {
             const id = e.target.parentElement.id
@@ -75,6 +82,13 @@ const populateSearchResults = (arr) => {
             console.log(favouriteHeroes);
         });
     });
+    //Adding click functionality so that when any search result is presses it shows more info about the hero...
+    document.querySelectorAll(".result-cards p, img").forEach(elem => {
+        elem.addEventListener("click", e => {
+            // console.log(e.target.parentElement.id);
+            moreInfoClicked(e.target.parentElement.id);
+        })
+    })
 }
 
 //Below function is being used  to make the actual API Call...
@@ -92,7 +106,6 @@ const searchAndPopulate = async (value) => {
 // ---------- ALL EVENTS BELOW ------------- // 
 document.querySelector(".favourites").addEventListener("click", () => {
     window.location.href = '../html/favourites.html';
-    console.log("fav clicked");
 });
 document.querySelector(".logo").addEventListener("click", () => {
     window.location.href = '../index.html';
