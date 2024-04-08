@@ -15,11 +15,9 @@ export let favouriteHeroes = {};
 // -- to persist the state itself..
 export const storeFavouriteHero = async (heroID) => {
     //After getting the id I will make an API call to fetch all the details and store it as key value pair in the favouriteHeroes array.
-    // console.log(favouriteHeroes)
     let heroKeys = Object.keys(favouriteHeroes);
     if (!heroKeys.includes(heroID))
         favouriteHeroes[heroID] = (await getDataWithID(heroID))[0];
-    // console.log(favouriteHeroes);
     localStorage.setItem("favouriteHeroes", JSON.stringify(favouriteHeroes));
 }
 //Below function will be used to delete hero from fav list and persist it as well.
@@ -41,7 +39,6 @@ export const moreInfoClicked = async (heroID) => {
 
 //Below function will be used for populating all the results from searching into the .search-results class..
 const populateSearchResults = (arr) => {
-    // console.log(arr[0]);
     arr.forEach(element => {
         const presentInFav = Object.keys(favouriteHeroes).includes(String(element.id)) ? true : false;
 
@@ -62,7 +59,6 @@ const populateSearchResults = (arr) => {
     document.querySelectorAll(".fav-button").forEach(elem => {
         elem.addEventListener("click", async (e) => {
             const id = e.target.parentElement.id
-            console.log(id);
             if (Object.keys(favouriteHeroes).includes(id)) {
                 deleteFavouriteHero(id);
                 document.querySelector(`.fav-button-${id}`).innerHTML =
@@ -79,13 +75,11 @@ const populateSearchResults = (arr) => {
                     alt="heart-add" width="28" height="28">Remove From Favourites
                 `
             }
-            console.log(favouriteHeroes);
         });
     });
     //Adding click functionality so that when any search result is presses it shows more info about the hero...
     document.querySelectorAll(".result-cards p, img").forEach(elem => {
         elem.addEventListener("click", e => {
-            // console.log(e.target.parentElement.id);
             moreInfoClicked(e.target.parentElement.id);
         })
     })

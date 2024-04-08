@@ -1,5 +1,4 @@
 import { favouriteHeroes, deleteFavouriteHero, moreInfoClicked } from "./script.js";
-// console.log(favouriteHeroes);
 
 (function () {
     if (Object.keys(favouriteHeroes).length <= 0) {
@@ -11,7 +10,6 @@ import { favouriteHeroes, deleteFavouriteHero, moreInfoClicked } from "./script.
     }
     document.querySelector(".over-main2").innerHTML = "";
     for (const key in favouriteHeroes) {
-        console.log(key, favouriteHeroes[key]);
         document.querySelector(".over-main2").innerHTML +=
             `
             <div class="fav-card">
@@ -35,14 +33,12 @@ import { favouriteHeroes, deleteFavouriteHero, moreInfoClicked } from "./script.
     }
     document.querySelectorAll(".delete-hero").forEach(element => {
         element.addEventListener("click", (e) => {
-            console.log(e.target.id);
             deleteFavouriteHero(e.target.id);
             location.reload();
         })
     });
     document.querySelectorAll(".more-info").forEach(element => {
         element.addEventListener("click", (e) => {
-            console.log(e.target.id);
             moreInfoClicked(e.target.id);
         })
     });
@@ -51,13 +47,10 @@ import { favouriteHeroes, deleteFavouriteHero, moreInfoClicked } from "./script.
 // ---------- ALL EVENTS BELOW ------------- //
 // document.querySelector(".favourites").addEventListener("click", () => {
 //     window.location.href = '../html/favourites.html';
-//     console.log("fav clicked");
 // });
 // document.querySelector(".logo").addEventListener("click", () => {
 //     window.location.href = '../index.html';
-//     console.log("home clicked");
 // });
 // document.querySelector(".logo2").addEventListener("click", () => {
-//     console.log("home clicked");
 //     window.location.href = '../index.html';
 // });
