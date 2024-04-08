@@ -46,11 +46,11 @@ import { favouriteHeroes, deleteFavouriteHero, moreInfoClicked } from "./script.
 
 // ---------- ALL EVENTS BELOW ------------- //
 // document.querySelector(".favourites").addEventListener("click", () => {
-//     window.location.href = '../html/favourites.html';
+//     window.location.href = '/html/favourites.html';
 // });
 // document.querySelector(".logo").addEventListener("click", () => {
-//     window.location.href = '../index.html';
+//     window.location.href = '/index.html';
 // });
 // document.querySelector(".logo2").addEventListener("click", () => {
-//     window.location.href = '../index.html';
+//     window.location.href = '/index.html';
 // });
