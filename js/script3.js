@@ -41,13 +41,16 @@ if (moreInfoID) {
 
 // ---------- ALL EVENTS BELOW ------------- //
 document.querySelector(".favourites").addEventListener("click", () => {
-    window.location.href = '/html/favourites.html';
+    // window.location.href = '/html/favourites.html';
+    window.location.href = 'Superhero-Hunter/html/favourites.html'; // for github Pages
 });
 document.querySelector(".logo").addEventListener("click", () => {
-    window.location.href = '/index.html';
+    // window.location.href = '/index.html';
+    window.location.href = 'Superhero-Hunter/index.html';
 });
 document.querySelector(".logo2").addEventListener("click", () => {
-    window.location.href = '/index.html';
+    // window.location.href = '/index.html';
+    window.location.href = 'Superhero-Hunter/index.html';
 });
 document.querySelector(".toggle-fav-btn").addEventListener("click", async (e) => {
     const heroID = document.getElementById("hero-id").innerText;
