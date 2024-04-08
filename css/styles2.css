@@ -9,8 +9,18 @@ body {
     background-color: rgb(136, 145, 169);
 }
 
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
     display: none;
+} */
+
+::-webkit-scrollbar {
+    width: 5px;
+    background-color: #222;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #666;
+    border-radius: 10px;
 }
 
 .invert {
@@ -87,6 +97,7 @@ body {
     gap: 40px 20px;
     flex-wrap: wrap;
     overflow: scroll;
+    overflow-x: hidden;
 }
 .start {
     color: white;
@@ -128,7 +139,7 @@ body {
 
 .card-details h1 {
     text-align: center;
-    overflow: scroll;
+    overflow: hidden;
     height: 85px;
 }
 
