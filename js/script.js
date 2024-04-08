@@ -13,7 +13,7 @@ export let favouriteHeroes = {};
 
 //this function will be called when favourite button is pressed and will store the hero in both favouriteHero array and local storage --
 // -- to persist the state itself..
-const storeFavouriteHero = async (heroID) => {
+export const storeFavouriteHero = async (heroID) => {
     //After getting the id I will make an API call to fetch all the details and store it as key value pair in the favouriteHeroes array.
     // console.log(favouriteHeroes)
     let heroKeys = Object.keys(favouriteHeroes);

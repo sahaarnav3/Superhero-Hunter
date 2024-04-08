@@ -168,8 +168,81 @@ body {
 /* -------------- Below styling for more info page-------------------- */
 .moreinfo-card {
     width: 80%;
-    height: 80%;
+    height: 98%;
     background-color: rgba(0, 0, 0, 0.564);
     border-radius: 25px;
     box-shadow: rgb(255, 255, 255) 0px 0px 20px 0px, rgb(255, 255, 255) 0px 0px 16px 0px;
+    display: flex;
+
+}
+
+.img-and-description {
+    height: 100%;
+    width: 50%;
+    /* background-color: aliceblue; */
+    padding: 20px;
+    /* border: 1px solid red; */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    /* justify-content: space-; */
+}
+.img-and-description img {
+    width: 55%;
+    border-radius: 15px;
+}
+.name-and-desc {
+    height: 50%;
+}
+.name-and-desc h1 {
+    margin: 20px 0px;
+}
+.name-and-desc p {
+    font-size: 23px;
+}
+
+.other-details {
+    height: 100%;
+    width: 50%;
+    /* background-color: rgb(143, 196, 243); */
+    padding: 20px;
+}
+.other-details table {
+    /* border: 2px solid white; */
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: white;
+    font-size: 30px;
+    font-weight: 600;
+    border-spacing: 10px;
+}
+.other-details td {
+    /* border: 2px solid white; */
+    margin: 20px;
+    background-color: rgba(80, 80, 80, 0.377);
+    border-radius: 10px;
+    
+}
+
+.go-back{
+    color: white;
+    padding: 50px;
+    font-size: 50px;
+}
+.toggle-fav-btn {
+    font-size: 28px;
+    font-weight: 600;
+    background-color: transparent;
+    color: wheat;
+    border: none;
+    cursor: pointer;
+}
+.toggle-fav-btn:hover {
+    scale: 1.1;
+}
+.toggle-fav-btn img {
+    margin-right:10px;
 }
