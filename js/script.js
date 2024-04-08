@@ -34,8 +34,8 @@ export const deleteFavouriteHero = (heroID) => {
 export const moreInfoClicked = async (heroID) => {
     const data = (await getDataWithID(heroID))[0];
     sessionStorage.setItem('moreInfoID', JSON.stringify(data));
-    // window.location.href = '/html/moreInfo.html';
-    window.location.href = 'Superhero-Hunter/html/moreInfo.html'; // for github pages
+    window.location.href = '/html/moreInfo.html';
+    // window.location.href = 'Superhero-Hunter/html/moreInfo.html'; // for github pages
 }
 
 //Below function will be used for populating all the results from searching into the .search-results class..
@@ -100,17 +100,17 @@ const searchAndPopulate = async (value) => {
 
 // ---------- ALL EVENTS BELOW ------------- // 
 document.querySelector(".favourites").addEventListener("click", () => {
-    // window.location.href = '/html/favourites.html';
-    window.location.href = 'Superhero-Hunter/html/favourites.html';
+    window.location.href = '/html/favourites.html';
+    // window.location.href = 'Superhero-Hunter/html/favourites.html';
     //Remember these href will be appended after the port or project Name in github so adding .. will take it off the project in the github right..
 });
 document.querySelector(".logo").addEventListener("click", () => {
-    // window.location.href = '/index.html';
-    window.location.href = 'Superhero-Hunter/index.html';
+    window.location.href = '/index.html';
+    // window.location.href = 'Superhero-Hunter/index.html';
 });
 document.querySelector(".logo2").addEventListener("click", () => {
-    // window.location.href = '/index.html';
-    window.location.href = 'Superhero-Hunter/index.html';
+    window.location.href = '/index.html';
+    // window.location.href = 'Superhero-Hunter/index.html';
 });
 //This if here is too imp, see we are working in multi page website so what was happening was if you try exporting only the array, stil
 //-- the whole scipt was soemhow invoked, so what if did was, this below func will only be invoked if it finds .start-button 
