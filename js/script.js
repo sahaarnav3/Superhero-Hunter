@@ -100,7 +100,7 @@ const searchAndPopulate = async (value) => {
 
 // ---------- ALL EVENTS BELOW ------------- // 
 document.querySelector(".favourites").addEventListener("click", () => {
-    window.location.href = '/html/favourites.html';
+    window.location.href = './html/favourites.html';
     // window.location.href = 'Superhero-Hunter/html/favourites.html';
     //Remember these href will be appended after the port or project Name in github so adding .. will take it off the project in the github right..
 });
