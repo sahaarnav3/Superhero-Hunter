@@ -35,7 +35,7 @@ export const moreInfoClicked = async (heroID) => {
     const data = (await getDataWithID(heroID))[0];
     sessionStorage.setItem('moreInfoID', JSON.stringify(data));
     // window.location.href = './html/moreInfo.html';
-    window.location.href = 'Superhero-Hunter/html/moreInfo.html'; // for github pages
+    window.location.href = '/Superhero-Hunter/html/moreInfo.html'; // for github pages
 }
 
 //Below function will be used for populating all the results from searching into the .search-results class..
