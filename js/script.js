@@ -104,14 +104,14 @@ document.querySelector(".favourites").addEventListener("click", () => {
     // window.location.href = 'Superhero-Hunter/html/favourites.html';
     //Remember these href will be appended after the port or project Name in github so adding .. will take it off the project in the github right..
 });
-document.querySelector(".logo").addEventListener("click", () => {
-    window.location.href = './index.html';
-    // window.location.href = 'Superhero-Hunter/index.html';
-});
-document.querySelector(".logo2").addEventListener("click", () => {
-    window.location.href = './index.html';
-    // window.location.href = 'Superhero-Hunter/index.html';
-});
+// document.querySelector(".logo").addEventListener("click", () => {
+//     window.location.href = './index.html';
+//     // window.location.href = 'Superhero-Hunter/index.html';
+// });
+// document.querySelector(".logo2").addEventListener("click", () => {
+//     window.location.href = './index.html';
+//     // window.location.href = 'Superhero-Hunter/index.html';
+// });
 //This if here is too imp, see we are working in multi page website so what was happening was if you try exporting only the array, stil
 //-- the whole scipt was soemhow invoked, so what if did was, this below func will only be invoked if it finds .start-button 
 // -- in the current dom itself WOWWW.
