@@ -34,7 +34,7 @@ export const deleteFavouriteHero = (heroID) => {
 export const moreInfoClicked = async (heroID) => {
     const data = (await getDataWithID(heroID))[0];
     sessionStorage.setItem('moreInfoID', JSON.stringify(data));
-    window.location.href = '/html/moreInfo.html';
+    window.location.href = './html/moreInfo.html';
     // window.location.href = 'Superhero-Hunter/html/moreInfo.html'; // for github pages
 }
 
@@ -105,11 +105,11 @@ document.querySelector(".favourites").addEventListener("click", () => {
     //Remember these href will be appended after the port or project Name in github so adding .. will take it off the project in the github right..
 });
 document.querySelector(".logo").addEventListener("click", () => {
-    window.location.href = '/index.html';
+    window.location.href = './index.html';
     // window.location.href = 'Superhero-Hunter/index.html';
 });
 document.querySelector(".logo2").addEventListener("click", () => {
-    window.location.href = '/index.html';
+    window.location.href = './index.html';
     // window.location.href = 'Superhero-Hunter/index.html';
 });
 //This if here is too imp, see we are working in multi page website so what was happening was if you try exporting only the array, stil
