@@ -10,7 +10,7 @@ This is the home page
 ![start](image-1.png)
 After you press click to start this search page appears, with 2 heroes with some animations.
 
-<video controls src="20240520-1126-34.7660116.mp4" title="Title"></video>
+![hero-animation](20240520-1126-34.7660116.gif)
 something like this..
 
 ![search](image-2.png)
