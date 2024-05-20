@@ -1,44 +1,52 @@
-git repo --  https://github.com/sahaarnav3/Superhero-Hunter.git
+## Marvel Superhero Search App
 
-# Welcome to Marvel Superhero Search App.
+This is a fun and interactive app that lets you explore the world of Marvel superheroes!
 
-## Different Pages -- 
+## Different Pages
 
-![Home Page](image.png)
-This is the home page
+**Home Page**
 
+[Home Page](image.png)
 
+This is the starting point of your superhero adventure.
 
-![start](image-1.png)
-After you press click to start this search page appears, with 2 heroes with some animations.
+**Start Search**
 
+[Start](image-1.png)
 
+Clicking the "Start Search" button takes you to the search page, where you'll see two heroes with cool animations (like the one below).
 
-![hero-animation](20240520-1126-34.7660116.gif)
-something like this..
+**Hero Animation**
 
+[hero-animation](20240520-1126-34.7660116.gif)
 
+**Search Bar**
 
-![search](image-2.png)
-You can just start typing the name of your hero and results will start appearing with the respective names..
+[Search](image-2.png)
 
+Simply start typing the name of your desired hero in the search bar, and matching results will appear instantly.
 
+**Favorites Management**
 
-![search](image-3.png)
-You can either add or remove to the favourite hero section from right there..
+[Search](image-3.png)
 
+You can directly add or remove heroes from your favorites list right on the search page.
 
+**Hero Details Page**
 
-![hero-details](image-4.png)
-Clicking on the hero will land you in this page about the details of your hero..
-In this page you can do the add/remove from favourites list.
+[Hero Details](image-4.png)
 
+Clicking on a hero's name takes you to a dedicated page with detailed information about that hero. You can also add/remove the hero from your favorites list on this page.
 
+**Favorites Page**
 
-![favourites](image-5.png)
-Finally this is your favourite hero page, containing list of all your marked favourite heros. 
+[Favorites](image-5.png)
 
+This page displays a list of all the superheroes you've marked as favorites.
 
+**Favorite Hero Display**
 
-![fav-hero](image-6.png)
-In your favourite hero display, you can either remove it from fav. or go to the about page with respective buttons.
+[Fav Hero](image-6.png)
+
+From the favorites page, you can either remove a hero from your favorites list or access their details page.
+
