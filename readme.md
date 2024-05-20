@@ -14,7 +14,7 @@ This is the starting point of your superhero adventure.
 
 ![Start](image-1.png)
 
-Clicking the "Start Search" button takes you to the search page, where you'll see two heroes with cool animations (like the one below).
+Clicking the "Click to Start" button takes you to the search page, where you'll see two heroes with cool animations (like the one below).
 
 **Hero Animation**
 
